@@ -65,7 +65,8 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $clientes = session('clientes'); //pegando da sessãos
-        $id = end($clientes)['id'] + 1; //pegar o ultimo id da sessão +1
+        $id = count($clientes) +1;
+//      $id = end($clientes)['id'] + 1; //pegar o ultimo id da sessão +1
         $nome = $request->nome; //pegar o prox. nome
         $dados = [ "id" => $id, "nome" => $nome ]; // criar os dados na array
         $clientes[] = $dados;
